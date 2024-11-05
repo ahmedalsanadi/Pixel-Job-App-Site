@@ -1,4 +1,3 @@
-
 <x-panel class=" flex flex-col text-center">
     <div class="self-start text-sm">Employer Name</div>
     <div class="py-8 ">
@@ -7,9 +6,9 @@
     </div>
     <div class="flex justify-between items-center mt-auto">
         <div>
-            <x-tag>Tag</x-tag>
-            <x-tag>Tag</x-tag>
-            <x-tag>Tag</x-tag>
+            <x-tag size="small">Backend</x-tag>
+            <x-tag size="small">FrontEnd</x-tag>
+            <x-tag size="small">Manager</x-tag>
         </div>
         <x-employer-logo :size="42" />
     </div>
