@@ -13,6 +13,9 @@ export default {
             colors: {
                 black: "#060606",
             },
+            fontFamily: {
+                "hanken-gotesk": ["Hanken Grotesk", "sans-serif"],
+            },
         },
     },
     plugins: [],
