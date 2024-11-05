@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Positions</title>
-    @Vite(['resources/js/app.js'])
+    @Vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body>
     <div>
