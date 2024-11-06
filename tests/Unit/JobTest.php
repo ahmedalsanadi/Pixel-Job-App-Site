@@ -11,3 +11,5 @@ it('belongs to an employer', function () {
 
     expect($job->employer->is($employer))->toBeTrue();
 });
+
+
