@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Employer;
 
 class User extends Authenticatable
 {
@@ -48,6 +49,6 @@ class User extends Authenticatable
 
     public function employer()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(Employer::class);
     }
 }

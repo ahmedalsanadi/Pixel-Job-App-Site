@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('salary');
             $table->string('location');
-            $table->string('sechedule')->default('Full Time');
+            $table->string('schedule')->default('Full Time');
             $table->string('url');
             $table->boolean('featured')->default(false);
             $table->timestamps();
