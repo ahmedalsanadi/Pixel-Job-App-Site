@@ -6,6 +6,9 @@ use App\Models\Job;
 use App\Models\Tag;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
+use Auth;
+use Illuminate\Support\Arr;
+use Request;
 
 
 class JobController extends Controller
@@ -28,27 +31,27 @@ class JobController extends Controller
         return view('jobs.create');
     }
 
-
-
-    public function show(Job $job)
+    public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'title' => 'required',
+            'salary' => 'required',
+            'location' => 'required',
+            'schedule' => ['required', 'in:Part Time,Full Time'],
+            'url' => ['required', 'url'],
+            'tags' => ['nullable']
+        ]);
+        $attributes['featured'] = $request->has('featured');
+        $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, ['tags']));
+
+        if ($attributes['tags']) {
+            $attributes['tags'] = explode(',', $attributes['tags']); // web , video, education
+            foreach ($attributes['tags'] as $tag) {
+                $job->tag($tag);
+            }
+        }
+
+        return redirect('/');
     }
 
-
-    public function edit(Job $job)
-    {
-        //
-    }
-
-    public function update()
-    {
-
-    }
-
-
-    public function destroy(Job $job)
-    {
-        //
-    }
 }
