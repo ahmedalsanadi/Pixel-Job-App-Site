@@ -34,7 +34,8 @@ class RegisteredUserController extends Controller
 
 
         $user = User::create($userAttributes);
-        $logoPath = $request->logo->store("logos"); // store logo on logos folder
+        // store logo on logos folder and Specify the public disk
+        $logoPath = $request->logo->store("logos", "public"); // its stored in storage/app/public/logos
 
         // store employer with logo_path
         $user->employer()->create([
