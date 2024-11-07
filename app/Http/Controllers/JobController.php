@@ -15,7 +15,7 @@ class JobController extends Controller
 
     public function index()
     {
-      //group them according to whether they are featured or not
+        //group them according to whether they are featured or not
         $jobs = Job::latest()
             ->with(['employer', 'tags'])
             ->get()
@@ -50,7 +50,15 @@ class JobController extends Controller
         $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, ['tags']));
 
         if ($attributes['tags']) {
-            $attributes['tags'] = explode(',', $attributes['tags']); // web , video, education
+
+            $attributes['tags'] =
+                array_map(
+                    fn($tag) =>
+                    strtolower(trim($tag)),
+                    explode(',', $attributes['tags'])
+                ); // web , video, education
+
+
             foreach ($attributes['tags'] as $tag) {
                 $job->tag($tag);
             }

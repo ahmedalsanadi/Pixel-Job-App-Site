@@ -10,7 +10,7 @@
             : asset('storage/' . $employer->logo)
     }}"
     alt="Employer logo"
-    class="rounded-xl"
+    class="rounded-xl ml-1 "
     width="{{ $size }}"
 />
 
