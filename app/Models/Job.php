@@ -13,6 +13,14 @@ use App\Models\Tag;
 class Job extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "title",
+        "salary",
+        "location",
+        "schedule",
+        "featured",
+        "url",
+    ];
 
     public function employer(): BelongsTo
     {

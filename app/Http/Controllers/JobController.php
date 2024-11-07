@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use App\Models\Tag;
-use App\Http\Requests\StoreJobRequest;
-use App\Http\Requests\UpdateJobRequest;
-use Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Request;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class JobController extends Controller
@@ -17,10 +16,10 @@ class JobController extends Controller
     public function index()
     {
         //group them according to whether they are featured or not
-        $jobs = Job::all()->groupBy('featured');
+        $jobs = Job::latest()->get()->groupBy('featured');
         return view('jobs.index', [
-            'featuredJobs' => $jobs[0], //featured jobs
-            'jobs' => $jobs[1], // un-featured jobs
+            'jobs' => $jobs[0], // un-featured jobs
+            'featuredJobs' => $jobs[1], //featured jobs
             'tags' => Tag::all()
         ]);
     }
