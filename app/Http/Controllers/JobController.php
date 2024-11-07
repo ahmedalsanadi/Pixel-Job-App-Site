@@ -15,12 +15,18 @@ class JobController extends Controller
 
     public function index()
     {
-        //group them according to whether they are featured or not
-        $jobs = Job::latest()->get()->groupBy('featured');
+      //group them according to whether they are featured or not
+        $jobs = Job::latest()
+            ->with(['employer', 'tags'])
+            ->get()
+            ->groupBy('featured');
+
         return view('jobs.index', [
+
             'jobs' => $jobs[0], // un-featured jobs
             'featuredJobs' => $jobs[1], //featured jobs
             'tags' => Tag::all()
+
         ]);
     }
 
