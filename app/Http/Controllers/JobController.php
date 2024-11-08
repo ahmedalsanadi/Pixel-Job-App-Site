@@ -67,4 +67,13 @@ class JobController extends Controller
         return redirect('/');
     }
 
+    public function edit(Job $job)
+    {
+        $tags = $job->tags->pluck('name')->implode(', '); //format tags to be separeted by commas
+        return view('jobs.edit',[
+            'job' => $job,
+            'tags' => $tags
+        ]);
+    }
+
 }

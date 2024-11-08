@@ -10,8 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -33,7 +31,7 @@
                     </a>
 
                     <!-- Desktop Navigation -->
-                    <div class="hidden md:flex items-center space-x-1">
+                    <div class="hidden md:flex items-center space-x-1 ">
                         @foreach(['Jobs', 'Careers', 'Salaries', 'Companies'] as $item)
                             <a href="/" class="relative px-4 py-2 font-bold group">
                                 <span
@@ -51,7 +49,18 @@
                     <!-- Auth Buttons Desktop -->
                     <div class="hidden md:flex items-center space-x-2">
                         @auth
-                            <!-- ... auth buttons ... -->
+                            <a href="/jobs/create"
+                                class="px-2 py-1 font-normal text-md text-white bg-opacity-20 bg-gray-200 rounded-lg backdrop-blur-lg shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:scale-105">
+                                 New Job
+                            </a>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    class="px-2 py-1 font-normal text-md text-white bg-opacity-20 bg-gray-200 rounded-lg backdrop-blur-lg shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:scale-105">
+                                    Logout
+                                </button>
+                            </form>
+
                         @endauth
 
                         @guest
@@ -104,7 +113,17 @@
                         <!-- Mobile Auth Buttons -->
                         <div class="flex flex-col space-y-2 pt-4 mt-4 border-t border-white/10">
                             @auth
-                                <!-- ... mobile auth buttons ... -->
+                                <a href="/jobs/create"
+                                    class="px-4 py-3 font-bold text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors duration-300">
+                                    Publish a Job
+                                </a>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit"
+                                        class="px-6 py-2 font-semibold text-white bg-opacity-20 bg-gray-200 rounded-lg backdrop-blur-lg shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:scale-105">
+                                        Logout
+                                    </button>
+                                </form>
                             @endauth
 
                             @guest
