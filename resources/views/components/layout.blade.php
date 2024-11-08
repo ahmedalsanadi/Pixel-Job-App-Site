@@ -19,14 +19,7 @@
 
 <body
     class="bg-gradient-to-br from-black via-gray-900 to-blue-950 text-white font-hanken-gotesk pb-8 min-h-screen relative">
-
-    <!-- Noise Overlay -->
-    <div
-        class="noise bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=')]">
-    </div>
-    <div class="blur-overlay"></div>
-
-    <div class="px-10 content ">
+    <div class="px-10 ">
         <nav class="relative py-4 border-b border-white/10">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center">
