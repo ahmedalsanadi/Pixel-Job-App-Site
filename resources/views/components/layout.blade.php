@@ -24,7 +24,7 @@
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center">
                     <!-- Logo Section -->
-                    <a href="#" class="relative group z-50">
+                    <a href="/" class="relative group z-50">
                         <div
                             class="absolute inset-0 bg-blue-500/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300 opacity-0 group-hover:opacity-100">
                         </div>
@@ -35,7 +35,7 @@
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center space-x-1">
                         @foreach(['Jobs', 'Careers', 'Salaries', 'Companies'] as $item)
-                            <a href="#" class="relative px-4 py-2 font-bold group">
+                            <a href="/" class="relative px-4 py-2 font-bold group">
                                 <span
                                     class="relative z-10 text-gray-300 group-hover:text-white transition-colors duration-300">{{ $item }}</span>
                                 <div
