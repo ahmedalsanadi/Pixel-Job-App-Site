@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+
 
 class SessionController extends Controller
 {
@@ -29,9 +30,14 @@ class SessionController extends Controller
 
         return redirect('/');
     }
-    public function destroy()
+    public function destroy(Request $request)
     {
         Auth::logout();
-        return redirect('/login');
+
+        //to logout on other devices
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 }
