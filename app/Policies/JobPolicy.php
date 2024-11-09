@@ -9,58 +9,20 @@ use Illuminate\Auth\Access\Response;
 class JobPolicy
 {
     /**
-     * Determine whether the user can view any models.
+     * Determine if the user can update the job.
      */
-    public function viewAny(User $user): bool
+    public function update(User $user, Job $job)
     {
-        //
+        // Only the job owner (employer) can update the job
+        return $user->id === $job->employer->user_id;
     }
 
     /**
-     * Determine whether the user can view the model.
+     * Determine if the user can delete the job.
      */
-    public function view(User $user, Job $job): bool
+    public function delete(User $user, Job $job)
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, Job $job): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Job $job): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Job $job): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Job $job): bool
-    {
-        //
+        // Only the job owner (employer) can delete the job
+        return $user->id === $job->employer->user_id;
     }
 }
