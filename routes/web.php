@@ -8,10 +8,14 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [JobController::class, 'index']);
+Route::get('/', [JobController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
-Route::get('/jobs/{job}' ,[JobController::class , 'edit'])->middleware('auth');
+Route::get('/jobs/{job}', [JobController::class , 'show'])->middleware('auth');
+Route::get('/jobs/{job}/edit' ,[JobController::class , 'edit'])->middleware('auth');
+Route::put('/jobs/{job}', [JobController::class, 'update'])->middleware('auth');
+
+
 
 
 Route::get('/search', SearchController::class);
