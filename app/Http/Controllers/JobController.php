@@ -120,4 +120,11 @@ class JobController extends Controller
         return redirect()->route('jobs.index')->with('success', 'Job updated successfully');
     }
 
+    public function delete(Job $job)
+    {
+        $job->delete();
+        return redirect()->route('jobs.index');
+
+    }
+
 }

@@ -47,17 +47,4 @@ class RegisteredUserController extends Controller
 
         return redirect("/");
     }
-
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
 }

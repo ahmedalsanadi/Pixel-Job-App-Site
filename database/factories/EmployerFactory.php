@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class EmployerFactory extends Factory
 {
     protected $companies = [
-        [
-            'name' => 'Google',
-            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png'
-        ],
+
         [
             'name' => 'Microsoft',
             'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png'
@@ -22,37 +19,30 @@ class EmployerFactory extends Factory
         ],
         [
             'name' => 'Amazon',
-            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png'
-        ],
-        [
-            'name' => 'Meta',
-            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png'
+            'logo' => 'https://i.pinimg.com/736x/47/b7/bd/47b7bdac4285ee24654ca7d68cf06351.jpg'
         ],
         [
             'name' => 'Netflix',
-            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png'
-        ],
-        [
-            'name' => 'Tesla',
-            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/2560px-Tesla_Motors.svg.png'
+            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg'
         ],
         [
             'name' => 'IBM',
-            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png'
+            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg'
         ],
         [
             'name' => 'Intel',
             'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Intel_logo_%282006-2020%29.svg/1280px-Intel_logo_%282006-2020%29.svg.png'
         ],
-        [
-            'name' => 'Adobe',
-            'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png'
-        ]
     ];
+
+    protected static $index = 0;
 
     public function definition(): array
     {
-        $company = $this->companies[array_rand($this->companies)];
+        $company = $this->companies[self::$index];
+
+        // Increment index for the next call and wrap around if needed
+        self::$index = (self::$index + 1) % count($this->companies);
 
         return [
             'name' => $company['name'],

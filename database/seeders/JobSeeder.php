@@ -15,10 +15,10 @@ class JobSeeder extends Seeder
      */
     public function run(): void
     {
-        Tag::factory(20)->create();
-        $tags = Tag::factory(5)->create();
+        Tag::factory(10)->create();
+        $tags = Tag::factory(3)->create();
         //all single job will consist of all these 3 tags
-        Job::factory(20)->hasAttached($tags)->create(new Sequence([
+        Job::factory(count:12)->hasAttached($tags)->create(new Sequence([
             'featured' => true,
             'schedule' => 'Full Time'
         ], [
