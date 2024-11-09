@@ -1,3 +1,8 @@
+@import "@fortawesome/fontawesome-free/css/all.css"; /* Remove the tilde */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
