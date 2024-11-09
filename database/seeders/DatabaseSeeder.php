@@ -7,6 +7,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Seeder;
 
+use App\Models\Employer;
+use App\Models\Job;
+use App\Models\Tag;
+
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,31 +19,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
-        // Clear all files in the public/logos directory
-        $logoDirectory = public_path('storage/logos');
-
-        if (File::exists($logoDirectory)) {
-            File::cleanDirectory($logoDirectory);
-            $this->command->info('All logos have been deleted from public/logos.');
-        } else {
-            $this->command->info('The public/logos directory does not exist.');
-        }
-
-        $this->call(JobSeeder::class);
-
-
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
+        // 1- clear all images in the public/logos directory before seeding
+
+            $logoDirectory = public_path('storage/logos');
+
+            if (File::exists($logoDirectory)) {
+
+                File::cleanDirectory($logoDirectory);
+
+                $this->command->info('All logos have been deleted from public/logos.');
+
+            } else {
+
+                $this->command->info('The public/logos directory does not exist.');
+            }
+
+        // 2- call JobSeeder
+
+             $this->call(JobSeeder::class);
 
     }
-
-
-
-
 }
