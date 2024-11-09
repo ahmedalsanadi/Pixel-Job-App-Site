@@ -15,13 +15,13 @@
         <div class="flex-1 flex flex-col md:flex-row md:justify-between gap-4">
             <!-- Company and Job Info -->
             <div class="text-center sm:text-left space-y-2">
-                <a href="#"
+                <a href="{{ route('jobs.show', $job->id) }}"
                     class="inline-block text-sm text-gray-400 hover:text-blue-400  duration-300 relative group-hover:translate-x-1 transform transition-transform">
                     {{ $job->employer->name }}
                 </a>
 
                 <h3 class="font-bold text-xl group-hover:text-blue-400 transition-colors duration-300">
-                    <a href="{{ $job->url }}" target="_blank" class="relative inline-block">
+                <a href="{{ route('jobs.show', $job->id) }}" target="_blank" class="relative inline-block">
                         <span class="relative z-10">{{ $job->title }}</span>
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
                     </a>

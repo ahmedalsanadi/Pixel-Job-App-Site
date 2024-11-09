@@ -26,10 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::prefix('jobs')->group(function () {
         Route::get('/create', [JobController::class, 'create']);
         Route::post('/', [JobController::class, 'store']);
-        Route::get('/{job}', [JobController::class, 'show']);
-        Route::get('/{job}/edit', [JobController::class, 'edit'])->middleware('can:update,job');
+        Route::get('/{job}', [JobController::class, 'show'])->name('jobs.show');
+        Route::get('/{job}/edit', [JobController::class, 'edit'])->middleware('can:update,job')->name('jobs.edit');
         Route::put('/{job}', [JobController::class, 'update'])->middleware('can:update,job');
-        Route::delete('/{job}', [JobController::class, 'delete'])->middleware('can:delete,job');
+        Route::delete('/{job}', [JobController::class, 'delete'])->middleware('can:delete,job')->name('jobs.destroy');
     });
 
     Route::get('/search', SearchController::class);
@@ -39,12 +39,12 @@ Route::middleware('auth')->group(function () {
 
 
 // Auth Routes
-    Route::middleware('guest')->group(function () {
-        Route::get('/register', [RegisteredUserController::class, 'create']);
-        Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisteredUserController::class, 'create']);
+    Route::post('/register', [RegisteredUserController::class, 'store']);
 
-        Route::get('/login', [SessionController::class, 'create']);
-        Route::post('/login', [SessionController::class, 'store']);
-    });
+    Route::get('/login', [SessionController::class, 'create']);
+    Route::post('/login', [SessionController::class, 'store']);
+});
 
-    Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');

@@ -19,12 +19,14 @@ class JobFactory extends Factory
     {
         return [
             'employer_id' => Employer::factory(),
-            'title' => fake()->jobTitle,
-            'salary' => fake()->randomElement(['$50,000 USD', '$90,000 USD', '$150,000 USD']),
+            'title' => $this->faker->jobTitle,
+            'description' => $this->faker->paragraphs(3, true), // Generates a 3-sentence job description
+            'job_type' => $this->faker->randomElement(['Engineering', 'Marketing', 'Finance', 'Design', 'Operations']),
+            'salary' => $this->faker->randomElement(['$50,000 USD', '$90,000 USD', '$150,000 USD']),
             'location' => 'Remote',
-            'schedule' => 'Full Time',
-            'url' => fake()->url,
-            'featured' => false,
+            'schedule' => $this->faker->randomElement(['Full Time', 'Part Time']),
+            'url' => $this->faker->url,
+            'featured' => $this->faker->boolean(20), // 20% chance to be featured
         ];
     }
 }

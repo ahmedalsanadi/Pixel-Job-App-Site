@@ -15,7 +15,9 @@ class Job extends Model
     use HasFactory;
     protected $fillable = [
         "title",
+        'description',
         "salary",
+        'job_type',
         "location",
         "schedule",
         "featured",

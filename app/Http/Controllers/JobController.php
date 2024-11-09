@@ -40,7 +40,9 @@ class JobController extends Controller
     {
         $attributes = $request->validate([
             'title' => 'required',
+            'description'=> 'required',
             'salary' => 'required',
+            'job_type' =>'required',
             'location' => 'required',
             'schedule' => ['required', 'in:Part Time,Full Time'],
             'url' => ['required', 'url'],
@@ -69,7 +71,7 @@ class JobController extends Controller
 
     public function show(Job $job)
     {
-        return " show job";
+        return view('jobs.show', ['job' => $job]);
     }
 
     public function edit(Job $job)
@@ -85,7 +87,9 @@ class JobController extends Controller
     {
         $attributes = $request->validate([
             'title' => 'required',
+            'description'=> 'required',
             'salary' => 'required',
+            'job_type' =>'required',
             'location' => 'required',
             'schedule' => ['required', 'in:Part Time,Full Time'],
             'url' => ['required', 'url'],
