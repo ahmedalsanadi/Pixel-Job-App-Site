@@ -9,14 +9,21 @@ Welcome to **Pixel Positions** Job Application Site! An advanced Job Application
 <div align="center">
    <img src="./screenshots/show-apply.png" alt="hero section" width="100%"  style="margin-bottom:20px">
 
-<a href="https://packagist.org/packages/laravel/tinker"><img src="https://img.shields.io/packagist/v/laravel/tinker" alt="Laravel Tinker Version"></a>
-<a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/TailwindCSS-v3.4.14-06B6D4" alt="TailwindCSS"></a>
-<a href="https://getcomposer.org/"><img src="https://img.shields.io/badge/Composer-v2.0-885630" alt="Composer Version"></a>
-<a href="https://github.com/ahmedalsanadi/Pixel-Job-App-Site.git/LICENSE"><img src="https://img.shields.io/github/license/ahmedalsanadi/Pixel-Job-App-Site.git" alt="License"></a>
+ 
 
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-11-blue.svg)
+![Vite](https://img.shields.io/badge/Vite-5.0-646CFF.svg)
+![Composer](https://img.shields.io/badge/Composer-2.0-885630.svg)
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4.svg)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E.svg)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v3.4.14-06B6D4.svg)
+![Font Awesome](https://img.shields.io/badge/Font%20Awesome-6.6.0-339AF0.svg)
+
+
+
 
 </div>
+
 
 ## 🎨 Features
 
